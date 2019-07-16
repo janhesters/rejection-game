@@ -37,6 +37,8 @@
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-simple-import-sort": "^4.0.0",
     "redux-logger": "^3.0.6",
     "riteway": "^6.0.3",
     "tap-nirvana": "^1.1.0"
