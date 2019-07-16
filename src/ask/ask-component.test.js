@@ -2,12 +2,8 @@ import React from 'react';
 import { describe } from 'riteway';
 import render from 'riteway/render-component';
 
+import { createAskFixture } from '../fixtures';
 import Ask from './ask-component';
-
-const createAskFixture = ({ accepted = false } = {}) => ({
-  demand: 'Get a FooBar',
-  accepted,
-});
 
 describe('Ask component', async assert => {
   const createAsk = (props = {}) => render(<Ask {...props} />);
