@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-redux": "^7.1.0",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "riteway -r @babel/register -r @babel/polyfill 'src/**/*.test.js' | tap-nirvana",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -27,5 +30,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.4",
+    "redux-logger": "^3.0.6",
+    "riteway": "^6.0.3",
+    "tap-nirvana": "^1.1.0"
   }
 }
