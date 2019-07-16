@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Game from './game-component';
 
-export default () => <Game />;
+export default () => {
+  const [newAsk, setNewAsk] = useState('');
+  return <Game newAsk={newAsk} onChangeNewAsk={() => {}} />;
+};
