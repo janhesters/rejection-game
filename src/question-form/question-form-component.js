@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
 
 function QuestionForm({
   askee,
+  disabled,
   newQuestion,
   onChangeAskee,
   onChangeNewQuestion,
@@ -53,7 +54,7 @@ function QuestionForm({
       <Grid item md={2} sm={6} xs={12}>
         <Button
           className={classNames(classes.rejected, 'rejected-button')}
-          color="primary"
+          disabled={disabled}
           fullWidth={true}
           onClick={() => onClick()}
           variant="contained"
@@ -64,7 +65,7 @@ function QuestionForm({
       <Grid item md={2} sm={6} xs={12}>
         <Button
           className={classNames(classes.accepted, 'accepted-button')}
-          color="primary"
+          disabled={disabled}
           fullWidth={true}
           onClick={() => onClick('Accepted')}
           variant="contained"
@@ -77,6 +78,8 @@ function QuestionForm({
 }
 
 QuestionForm.propTypes = {
+  askee: PropTypes.string.isRequired,
+  disabled: PropTypes.bool.isRequired,
   newQuestion: PropTypes.string.isRequired,
   onChangeAskee: PropTypes.func.isRequired,
   onChangeNewQuestion: PropTypes.func.isRequired,
@@ -84,6 +87,8 @@ QuestionForm.propTypes = {
 };
 
 QuestionForm.defaultProps = {
+  askee: '',
+  disabled: false,
   newQuestion: '',
 };
 
