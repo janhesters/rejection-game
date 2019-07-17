@@ -1,8 +1,9 @@
 import cuid from 'cuid';
 
-export const createAsk = ({
+export const createQuestion = ({
+  askee = 'Anonymous',
   id = cuid(),
-  dateCreated = new Date(),
-  demand = 'N/A',
-  accepted = false,
-} = {}) => ({ id, dateCreated, demand, accepted });
+  status = 'Unanswered',
+  timestamp = new Date(),
+  question = 'N/A',
+} = {}) => ({ askee, id, status, timestamp, question });
