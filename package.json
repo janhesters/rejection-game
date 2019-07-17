@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.2.0",
+    "classnames": "^2.2.6",
     "cuid": "^2.1.6",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
