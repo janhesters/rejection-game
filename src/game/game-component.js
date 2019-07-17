@@ -5,23 +5,13 @@ import strings from './strings';
 
 function Game({
   askee,
-  dayScore,
   newQuestion,
   onChangeAskee,
   onChangeNewQuestion,
   onClick,
-  totalScore,
 }) {
   return (
     <>
-      <p>
-        Total:
-        <span className="total-score">{totalScore}</span>
-      </p>
-      <p>
-        Today:
-        <span className="day-score">{dayScore}</span>
-      </p>
       <input
         className="question-input"
         value={newQuestion}
@@ -45,18 +35,14 @@ function Game({
 }
 
 Game.propTypes = {
-  dayScore: PropTypes.number.isRequired,
   newQuestion: PropTypes.string.isRequired,
   onChangeAskee: PropTypes.func.isRequired,
   onChangeNewQuestion: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
-  totalScore: PropTypes.number.isRequired,
 };
 
 Game.defaultProps = {
-  dayScore: 0,
   newQuestion: '',
-  totalScore: 0,
 };
 
 export default Game;
