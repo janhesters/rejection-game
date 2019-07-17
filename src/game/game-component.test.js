@@ -6,7 +6,7 @@ import Game from './game-component';
 
 describe('Game component', async assert => {
   const createGame = (props = {}) =>
-    render(<Game onChangeNewAsk={() => {}} {...props} />);
+    render(<Game onChangeNewAsk={() => {}} onClick={() => {}} {...props} />);
 
   {
     const props = {};

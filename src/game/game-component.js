@@ -3,7 +3,7 @@ import React from 'react';
 
 import strings from './strings';
 
-function Game({ dayScore, newAsk, onChangeNewAsk, totalScore }) {
+function Game({ dayScore, newAsk, onChangeNewAsk, onClick, totalScore }) {
   return (
     <>
       <p>
@@ -15,8 +15,12 @@ function Game({ dayScore, newAsk, onChangeNewAsk, totalScore }) {
         <span className="day-score">{dayScore}</span>
       </p>
       <input className="ask-input" value={newAsk} onChange={onChangeNewAsk} />
-      <button className="accepted-button">{strings.accepted}</button>
-      <button className="rejected-button">{strings.rejected}</button>
+      <button className="accepted-button" onClick={() => onClick(true)}>
+        {strings.accepted}
+      </button>
+      <button className="rejected-button" onClick={() => onClick()}>
+        {strings.rejected}
+      </button>
     </>
   );
 }
@@ -25,6 +29,7 @@ Game.propTypes = {
   dayScore: PropTypes.number.isRequired,
   newAsk: PropTypes.string.isRequired,
   onChangeNewAsk: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   totalScore: PropTypes.number.isRequired,
 };
 
