@@ -17,6 +17,15 @@ Run unit tests:
 yarn test
 ```
 
+## Showcase
+
+This app shows:
+
+- Unit tests with RITEway
+- Styling with Material-UI
+- Redux
+- React Hooks
+
 ## Resources
 
 - [How To Redux (Video)](https://ericelliottjs.com/premium-content/how-to-redux)
