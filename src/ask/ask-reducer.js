@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+
 const addAsk = payload => ({
   type: 'ask/ADD',
   payload,
@@ -5,12 +7,19 @@ const addAsk = payload => ({
 
 const initial = [];
 
+const youngerThanYesterday = ask =>
+  ask.dateCreated > (d => new Date(d.setDate(d.getDate() - 1)))(new Date());
+
 const getAsks = state => state.asks;
-const getDayScore = state =>
-  state.asks.filter(
-    a => a.dateCreated > (d => new Date(d.setDate(d.getDate() - 1)))(new Date())
-  ).length;
-const getTotalScore = state => state.asks.length;
+const getTotalScore = R.pipe(
+  getAsks,
+  R.length
+);
+const getDayScore = R.pipe(
+  getAsks,
+  R.filter(youngerThanYesterday),
+  R.length
+);
 
 const reducer = (state = initial, { type, payload } = {}) => {
   switch (type) {
