@@ -1,18 +1,22 @@
+import { ThemeProvider } from '@material-ui/styles';
 import React from 'react';
 import { describe } from 'riteway';
 import render from 'riteway/render-component';
 
+import theme from '../theme';
 import QuestionForm from './question-form-component';
 
 describe('QuestionForm component', async assert => {
   const createQuestionForm = (props = {}) =>
     render(
-      <QuestionForm
-        onChangeAskee={() => {}}
-        onChangeNewQuestion={() => {}}
-        onClick={() => {}}
-        {...props}
-      />
+      <ThemeProvider theme={theme}>
+        <QuestionForm
+          onChangeAskee={() => {}}
+          onChangeNewQuestion={() => {}}
+          onClick={() => {}}
+          {...props}
+        />
+      </ThemeProvider>
     );
 
   // NOTE: Ask Eric whether the following two tests are redundant.

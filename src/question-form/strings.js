@@ -3,6 +3,8 @@ const strings = {
   questionPlaceholder: 'What was your question?',
   accepted: 'Accepted',
   rejected: 'Rejected',
+  question: 'Question',
+  askee: 'Askee',
 };
 
 export default strings;
