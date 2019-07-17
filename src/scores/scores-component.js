@@ -3,7 +3,7 @@ import React from 'react';
 
 function Scores({ dayScore, totalScore }) {
   return (
-    <>
+    <div className="scores">
       <p>
         Total:
         <span className="total-score">{totalScore}</span>
@@ -12,7 +12,7 @@ function Scores({ dayScore, totalScore }) {
         Today:
         <span className="day-score">{dayScore}</span>
       </p>
-    </>
+    </div>
   );
 }
 

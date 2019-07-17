@@ -1,48 +1,18 @@
-import PropTypes from 'prop-types';
+import Container from '@material-ui/core/Container';
 import React from 'react';
 
-import strings from './strings';
+import History from '../history';
+import QuestionForm from '../question-form';
+import Scores from '../scores';
 
-function Game({
-  askee,
-  newQuestion,
-  onChangeAskee,
-  onChangeNewQuestion,
-  onClick,
-}) {
+function Game() {
   return (
-    <>
-      <input
-        className="question-input"
-        value={newQuestion}
-        onChange={onChangeNewQuestion}
-        placeholder={strings.questionPlaceholder}
-      />
-      <input
-        className="question-askee-input"
-        value={askee}
-        onChange={onChangeAskee}
-        placeholder={strings.askeePlaceholder}
-      />
-      <button className="rejected-button" onClick={() => onClick()}>
-        {strings.rejected}
-      </button>
-      <button className="accepted-button" onClick={() => onClick('Accepted')}>
-        {strings.accepted}
-      </button>
-    </>
+    <Container maxWidth="md" className="game-container">
+      <Scores />
+      <QuestionForm />
+      <History />
+    </Container>
   );
 }
-
-Game.propTypes = {
-  newQuestion: PropTypes.string.isRequired,
-  onChangeAskee: PropTypes.func.isRequired,
-  onChangeNewQuestion: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired,
-};
-
-Game.defaultProps = {
-  newQuestion: '',
-};
 
 export default Game;

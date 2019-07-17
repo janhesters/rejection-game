@@ -39,6 +39,4 @@ describe('question reducer', async assert => {
     actual: getQuestions({ questions: [question, otherQuestion] }),
     expected: [question, otherQuestion],
   });
-
-  // NOTE: Ask Eric if no tests for the selectors are okay, since they are composed
 });

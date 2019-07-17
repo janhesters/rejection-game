@@ -20,6 +20,7 @@ const calculateScore = R.reduce(
 const youngerThanYesterday = question =>
   question.timestamp > (d => new Date(d.setDate(d.getDate() - 1)))(new Date());
 
+// NOTE: Ask Eric if no tests for the selectors are okay, since they are composed
 const getTotalScore = R.pipe(
   getQuestions,
   calculateScore

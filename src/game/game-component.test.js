@@ -1,18 +1,18 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { describe } from 'riteway';
 import render from 'riteway/render-component';
 
+import store from '../store';
 import Game from './game-component';
 
 describe('Game component', async assert => {
   const createGame = (props = {}) =>
     render(
-      <Game
-        onChangeAskee={() => {}}
-        onChangeNewQuestion={() => {}}
-        onClick={() => {}}
-        {...props}
-      />
+      // NOTE: Ask Eric if this is okay?
+      <Provider store={store}>
+        <Game {...props} />
+      </Provider>
     );
 
   {
@@ -21,21 +21,9 @@ describe('Game component', async assert => {
 
     assert({
       given: 'just rendering',
-      should: 'render an input for the question',
-      actual: $('.question-input')[0].name,
-      expected: 'input',
-    });
-  }
-
-  {
-    const props = { newQuestion: 'foo' };
-    const $ = createGame(props);
-
-    assert({
-      given: 'a new question',
-      should: 'render the new question in the input',
-      actual: $('.question-input').val(),
-      expected: props.newQuestion,
+      should: 'render a container',
+      actual: $('.game-container').length,
+      expected: 1,
     });
   }
 
@@ -45,21 +33,9 @@ describe('Game component', async assert => {
 
     assert({
       given: 'just rendering',
-      should: 'render an input for an askee',
-      actual: $('.question-askee-input')[0].name,
-      expected: 'input',
-    });
-  }
-
-  {
-    const props = { askee: 'foo' };
-    const $ = createGame(props);
-
-    assert({
-      given: 'a new question',
-      should: 'render the new askee in the input',
-      actual: $('.question-askee-input').val(),
-      expected: props.askee,
+      should: 'render the scores',
+      actual: $('.scores').length,
+      expected: 1,
     });
   }
 
@@ -69,9 +45,9 @@ describe('Game component', async assert => {
 
     assert({
       given: 'just rendering',
-      should: 'render an accepted button',
-      actual: $('.accepted-button')[0].name,
-      expected: 'button',
+      should: 'render the question form',
+      actual: $('.question-form').length,
+      expected: 1,
     });
   }
 
@@ -81,9 +57,9 @@ describe('Game component', async assert => {
 
     assert({
       given: 'just rendering',
-      should: 'render a rejected button',
-      actual: $('.rejected-button')[0].name,
-      expected: 'button',
+      should: 'render the history',
+      actual: $('.history').length,
+      expected: 1,
     });
   }
 });

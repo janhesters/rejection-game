@@ -6,7 +6,7 @@ import strings from './strings';
 
 function History({ questions }) {
   return (
-    <>
+    <div className="history">
       <h3 className="history-heading">{strings.historyHeading}</h3>
       {questions.length === 0 && (
         <p className="no-questions">{strings.noQuestions}</p>
@@ -14,7 +14,7 @@ function History({ questions }) {
       {questions.map(({ id, ...question }) => (
         <Question key={id} {...question} />
       ))}
-    </>
+    </div>
   );
 }
 
