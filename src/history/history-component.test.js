@@ -1,12 +1,19 @@
+import { ThemeProvider } from '@material-ui/styles';
 import React from 'react';
 import { describe } from 'riteway';
 import render from 'riteway/render-component';
 
 import { createQuestion } from '../factories';
+import theme from '../theme';
 import History from './history-component';
 
 describe('History component', async assert => {
-  const createHistory = (props = {}) => render(<History {...props} />);
+  const createHistory = (props = {}) =>
+    render(
+      <ThemeProvider theme={theme}>
+        <History {...props} />
+      </ThemeProvider>
+    );
 
   {
     const props = {};

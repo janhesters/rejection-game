@@ -10,7 +10,7 @@ import Scores from '../scores';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(2, 2),
     height: '100%',
   },
   container: {

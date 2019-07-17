@@ -1,9 +1,11 @@
+import { ThemeProvider } from '@material-ui/styles';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { describe } from 'riteway';
 import render from 'riteway/render-component';
 
 import store from '../store';
+import theme from '../theme';
 import Game from './game-component';
 
 describe('Game component', async assert => {
@@ -11,7 +13,9 @@ describe('Game component', async assert => {
     render(
       // NOTE: Ask Eric if this is okay?
       <Provider store={store}>
-        <Game {...props} />
+        <ThemeProvider theme={theme}>
+          <Game {...props} />
+        </ThemeProvider>
       </Provider>
     );
 

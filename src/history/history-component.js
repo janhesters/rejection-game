@@ -1,3 +1,9 @@
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -6,15 +12,27 @@ import strings from './strings';
 
 function History({ questions }) {
   return (
-    <div className="history">
-      <h3 className="history-heading">{strings.historyHeading}</h3>
+    <List
+      className={classNames('history')}
+      subheader={
+        <ListSubheader component="div" className="history-heading">
+          {strings.historyHeading}
+        </ListSubheader>
+      }
+    >
+      <Divider />
       {questions.length === 0 && (
-        <p className="no-questions">{strings.noQuestions}</p>
+        <ListItem className="no-questions">
+          <ListItemText>{strings.noQuestions}</ListItemText>
+        </ListItem>
       )}
       {questions.map(({ id, ...question }) => (
-        <Question key={id} {...question} />
+        <span key={id}>
+          <Question {...question} />
+          <Divider />
+        </span>
       ))}
-    </div>
+    </List>
   );
 }
 

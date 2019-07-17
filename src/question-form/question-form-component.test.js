@@ -15,6 +15,7 @@ describe('QuestionForm component', async assert => {
       />
     );
 
+  // NOTE: Ask Eric whether the following two tests are redundant.
   {
     const props = {};
     const $ = createQuestionForm(props);
