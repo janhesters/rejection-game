@@ -4,7 +4,6 @@ import render from 'riteway/render-component';
 
 import { createAsk } from '../factories';
 import History from './history-component';
-import strings from './strings';
 
 describe('History component', async assert => {
   const createHistory = (props = {}) => render(<History {...props} />);
@@ -16,10 +15,8 @@ describe('History component', async assert => {
     assert({
       given: 'just rendering',
       should: 'render a heading',
-      actual: $('.history-heading')
-        .html()
-        .trim(),
-      expected: strings.historyHeading,
+      actual: $('.history-heading').length,
+      expected: 1,
     });
   }
 
@@ -30,10 +27,8 @@ describe('History component', async assert => {
     assert({
       given: 'no asks',
       should: 'render a no asks message',
-      actual: $('.no-asks')
-        .html()
-        .trim(),
-      expected: strings.noAsks,
+      actual: $('.no-asks').length,
+      expected: 1,
     });
   }
 

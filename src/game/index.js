@@ -4,5 +4,10 @@ import Game from './game-component';
 
 export default () => {
   const [newAsk, setNewAsk] = useState('');
-  return <Game newAsk={newAsk} onChangeNewAsk={() => {}} />;
+  return (
+    <Game
+      newAsk={newAsk}
+      onChangeNewAsk={({ target }) => setNewAsk(target.value)}
+    />
+  );
 };

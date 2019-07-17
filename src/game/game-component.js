@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import strings from './strings';
+
 function Game({ dayScore, newAsk, onChangeNewAsk, totalScore }) {
   return (
     <>
@@ -13,8 +15,8 @@ function Game({ dayScore, newAsk, onChangeNewAsk, totalScore }) {
         <span className="day-score">{dayScore}</span>
       </p>
       <input className="ask-input" value={newAsk} onChange={onChangeNewAsk} />
-      <button className="accepted-button" />
-      <button className="rejected-button" />
+      <button className="accepted-button">{strings.accepted}</button>
+      <button className="rejected-button">{strings.rejected}</button>
     </>
   );
 }
