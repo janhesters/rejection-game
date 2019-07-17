@@ -30,4 +30,11 @@ const reducer = (state = initial, { type, payload } = {}) => {
   }
 };
 
-export { addAsk, getAsks, getDayScore, getTotalScore, reducer };
+export {
+  addAsk,
+  getAsks,
+  getDayScore,
+  getTotalScore,
+  reducer,
+  youngerThanYesterday,
+};

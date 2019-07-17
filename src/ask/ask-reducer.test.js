@@ -1,21 +1,32 @@
 import { describe } from 'riteway';
 
 import { createAsk } from '../factories';
-import {
-  addAsk,
-  getAsks,
-  getDayScore,
-  getTotalScore,
-  reducer,
-} from './ask-reducer';
+import { addAsk, getAsks, reducer, youngerThanYesterday } from './ask-reducer';
 
 const ask = createAsk();
 const otherAsk = createAsk({
+  dateCreated: new Date('2000-01-01'),
   demand: 'foo',
   accepted: true,
 });
 
-describe('ask reducer()', async assert => {
+describe('youngerThanYesterday()', async assert => {
+  assert({
+    given: 'an ask which is younger than yesterday',
+    should: 'return true',
+    actual: youngerThanYesterday(ask),
+    expected: true,
+  });
+
+  assert({
+    given: 'an ask which is older than yesterday',
+    should: 'return false',
+    actual: youngerThanYesterday(otherAsk),
+    expected: false,
+  });
+});
+
+describe('ask reducer', async assert => {
   assert({
     given: 'no arguments',
     should: 'return the valid initial state',
@@ -45,19 +56,5 @@ describe('ask reducer()', async assert => {
     expected: [ask, otherAsk],
   });
 
-  assert({
-    given: 'state and a get total score selector',
-    should: 'return the amount of asks',
-    actual: getTotalScore({ asks: [ask, otherAsk] }),
-    expected: 2,
-  });
-
-  assert({
-    given: 'state and a get day score selector',
-    should: 'return the amount of asks younger than a day',
-    actual: getDayScore({
-      asks: [ask, createAsk({ dateCreated: new Date('2000-01-01') })],
-    }),
-    expected: 1,
-  });
+  // NOTE: Ask Eric if no tests for the selectors are okay, since they are composed
 });
