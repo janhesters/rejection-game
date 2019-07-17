@@ -1,9 +1,9 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
 
-import { reducer as asks } from './ask/ask-reducer';
+import { reducer as questions } from './question/question-reducer';
 
-const reducer = combineReducers({ asks });
+const reducer = combineReducers({ questions });
 
 const configureStore = () => {
   const middlewares = [];

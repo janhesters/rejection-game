@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { addAsk, getDayScore, getTotalScore } from '../ask/ask-reducer';
-import { createAsk } from '../factories';
+import { createQuestion } from '../factories';
+import {
+  addQuestion,
+  getDayScore,
+  getTotalScore,
+} from '../question/question-reducer';
 import Game from './game-component';
 
 const mapStateToProps = state => ({
@@ -12,20 +16,24 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addAsk }
-)(({ addAsk, ...props }) => {
-  const [demand, setNewDemand] = useState('');
+  { addQuestion }
+)(({ addQuestion, ...props }) => {
+  const [askee, setAskee] = useState('');
+  const [question, setNewQuestion] = useState('');
 
-  const handleClick = (accepted = false) => {
-    addAsk(createAsk({ demand, accepted }));
-    setNewDemand('');
+  const handleClick = (status = 'Rejected') => {
+    addQuestion(createQuestion({ askee, status, question }));
+    setAskee('');
+    setNewQuestion('');
   };
 
   return (
     <Game
       {...props}
-      newAsk={demand}
-      onChangeNewAsk={({ target }) => setNewDemand(target.value)}
+      askee={askee}
+      newQuestion={question}
+      onChangeAskee={({ target }) => setAskee(target.value)}
+      onChangeNewQuestion={({ target }) => setNewQuestion(target.value)}
       onClick={handleClick}
     />
   );

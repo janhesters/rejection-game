@@ -3,7 +3,15 @@ import React from 'react';
 
 import strings from './strings';
 
-function Game({ dayScore, newAsk, onChangeNewAsk, onClick, totalScore }) {
+function Game({
+  askee,
+  dayScore,
+  newQuestion,
+  onChangeAskee,
+  onChangeNewQuestion,
+  onClick,
+  totalScore,
+}) {
   return (
     <>
       <p>
@@ -14,12 +22,23 @@ function Game({ dayScore, newAsk, onChangeNewAsk, onClick, totalScore }) {
         Today:
         <span className="day-score">{dayScore}</span>
       </p>
-      <input className="ask-input" value={newAsk} onChange={onChangeNewAsk} />
-      <button className="accepted-button" onClick={() => onClick(true)}>
-        {strings.accepted}
-      </button>
+      <input
+        className="question-input"
+        value={newQuestion}
+        onChange={onChangeNewQuestion}
+        placeholder={strings.questionPlaceholder}
+      />
+      <input
+        className="question-askee-input"
+        value={askee}
+        onChange={onChangeAskee}
+        placeholder={strings.askeePlaceholder}
+      />
       <button className="rejected-button" onClick={() => onClick()}>
         {strings.rejected}
+      </button>
+      <button className="accepted-button" onClick={() => onClick('Accepted')}>
+        {strings.accepted}
       </button>
     </>
   );
@@ -27,15 +46,16 @@ function Game({ dayScore, newAsk, onChangeNewAsk, onClick, totalScore }) {
 
 Game.propTypes = {
   dayScore: PropTypes.number.isRequired,
-  newAsk: PropTypes.string.isRequired,
-  onChangeNewAsk: PropTypes.func.isRequired,
+  newQuestion: PropTypes.string.isRequired,
+  onChangeAskee: PropTypes.func.isRequired,
+  onChangeNewQuestion: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
   totalScore: PropTypes.number.isRequired,
 };
 
 Game.defaultProps = {
   dayScore: 0,
-  newAsk: '',
+  newQuestion: '',
   totalScore: 0,
 };
 

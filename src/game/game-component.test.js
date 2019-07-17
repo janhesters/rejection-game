@@ -6,7 +6,14 @@ import Game from './game-component';
 
 describe('Game component', async assert => {
   const createGame = (props = {}) =>
-    render(<Game onChangeNewAsk={() => {}} onClick={() => {}} {...props} />);
+    render(
+      <Game
+        onChangeAskee={() => {}}
+        onChangeNewQuestion={() => {}}
+        onClick={() => {}}
+        {...props}
+      />
+    );
 
   {
     const props = {};
@@ -116,21 +123,45 @@ describe('Game component', async assert => {
 
     assert({
       given: 'just rendering',
-      should: 'render an input for asks',
-      actual: $('.ask-input')[0].name,
+      should: 'render an input for the question',
+      actual: $('.question-input')[0].name,
       expected: 'input',
     });
   }
 
   {
-    const props = { newAsk: 'foo' };
+    const props = { newQuestion: 'foo' };
     const $ = createGame(props);
 
     assert({
-      given: 'a new ask',
-      should: 'render the new ask in the input',
-      actual: $('.ask-input').val(),
-      expected: props.newAsk,
+      given: 'a new question',
+      should: 'render the new question in the input',
+      actual: $('.question-input').val(),
+      expected: props.newQuestion,
+    });
+  }
+
+  {
+    const props = {};
+    const $ = createGame(props);
+
+    assert({
+      given: 'just rendering',
+      should: 'render an input for an askee',
+      actual: $('.question-askee-input')[0].name,
+      expected: 'input',
+    });
+  }
+
+  {
+    const props = { askee: 'foo' };
+    const $ = createGame(props);
+
+    assert({
+      given: 'a new question',
+      should: 'render the new askee in the input',
+      actual: $('.question-askee-input').val(),
+      expected: props.askee,
     });
   }
 

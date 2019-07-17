@@ -1,4 +1,4 @@
 export default {
   historyHeading: 'History:',
-  noAsks: 'No asks yet.',
+  noQuestions: 'No questions, yet.',
 };

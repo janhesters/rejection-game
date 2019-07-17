@@ -2,7 +2,7 @@ import React from 'react';
 import { describe } from 'riteway';
 import render from 'riteway/render-component';
 
-import { createAsk } from '../factories';
+import { createQuestion } from '../factories';
 import History from './history-component';
 
 describe('History component', async assert => {
@@ -25,24 +25,27 @@ describe('History component', async assert => {
     const $ = createHistory(props);
 
     assert({
-      given: 'no asks',
-      should: 'render a no asks message',
-      actual: $('.no-asks').length,
+      given: 'no questions',
+      should: 'render a no questions message',
+      actual: $('.no-questions').length,
       expected: 1,
     });
   }
 
   {
     const props = {
-      asks: [createAsk(), createAsk({ demand: 'baz', accepted: true })],
+      questions: [
+        createQuestion(),
+        createQuestion({ question: 'baz', status: 'Accepted' }),
+      ],
     };
     const $ = createHistory(props);
 
     assert({
-      given: 'some asks',
-      should: 'render the asks',
-      actual: $('.ask').length,
-      expected: props.asks.length,
+      given: 'some questions',
+      should: 'render the questions',
+      actual: $('.question').length,
+      expected: props.questions.length,
     });
   }
 });
