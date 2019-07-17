@@ -183,7 +183,7 @@ describe('Game component', async assert => {
 
     assert({
       given: 'just rendering',
-      should: 'render an rejected button',
+      should: 'render a rejected button',
       actual: $('.rejected-button')[0].name,
       expected: 'button',
     });
