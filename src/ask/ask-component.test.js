@@ -2,7 +2,7 @@ import React from 'react';
 import { describe } from 'riteway';
 import render from 'riteway/render-component';
 
-import { createAskFixture } from '../fixtures';
+import { createAsk as createAskFixture } from '../factories';
 import Ask from './ask-component';
 
 describe('Ask component', async assert => {
@@ -19,6 +19,20 @@ describe('Ask component', async assert => {
         .html()
         .trim(),
       expected: props.demand,
+    });
+  }
+
+  {
+    const props = createAskFixture();
+    const $ = createAsk(props);
+
+    assert({
+      given: 'an ask',
+      should: 'render its date created time stamp',
+      actual: $('.ask-date-created')
+        .html()
+        .trim(),
+      expected: props.dateCreated.toLocaleDateString(),
     });
   }
 

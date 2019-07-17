@@ -2,7 +2,7 @@ import React from 'react';
 import { describe } from 'riteway';
 import render from 'riteway/render-component';
 
-import { createAskFixture } from '../fixtures';
+import { createAsk } from '../factories';
 import History from './history-component';
 import strings from './strings';
 
@@ -39,10 +39,7 @@ describe('History component', async assert => {
 
   {
     const props = {
-      asks: [
-        createAskFixture(),
-        createAskFixture({ demand: 'baz', accepted: true }),
-      ],
+      asks: [createAsk(), createAsk({ demand: 'baz', accepted: true })],
     };
     const $ = createHistory(props);
 
