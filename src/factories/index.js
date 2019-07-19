@@ -9,6 +9,7 @@ const createQuestion = ({
 } = {}) => ({ askee, id, status, timestamp, question });
 
 const createState = ({
+  loading = false,
   questions = [
     createQuestion({
       askee: 'JSCheerleader',
@@ -38,6 +39,7 @@ const createState = ({
       timestamp: new Date('2019-05-22'),
     }),
   ],
-} = {}) => ({ questions });
+  user = { sub: 'user-abc' },
+} = {}) => ({ loading, questions, user });
 
 export { createQuestion, createState };

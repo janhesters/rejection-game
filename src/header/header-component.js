@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Header({ appTitle }) {
+function Header({ appTitle, user }) {
   const classes = useStyles();
 
   return (
@@ -29,6 +29,11 @@ function Header({ appTitle }) {
 
 Header.propTypes = {
   appTitle: PropTypes.string.isRequired,
+  user: PropTypes.object,
+};
+
+Header.defaultProps = {
+  user: null,
 };
 
 export default Header;

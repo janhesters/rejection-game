@@ -32,11 +32,35 @@ describe('Game component', async assert => {
   }
 
   {
+    const props = { loading: true };
+    const $ = createGame(props);
+
+    assert({
+      given: 'loading',
+      should: 'render the loading component',
+      actual: $('.loading').length,
+      expected: 1,
+    });
+  }
+
+  {
     const props = {};
     const $ = createGame(props);
 
     assert({
-      given: 'just rendering',
+      given: 'no user',
+      should: 'render the auth component',
+      actual: $('.auth').length,
+      expected: 1,
+    });
+  }
+
+  {
+    const props = { user: { foo: 'bar' } };
+    const $ = createGame(props);
+
+    assert({
+      given: 'a user',
       should: 'render the scores',
       actual: $('.scores').length,
       expected: 1,
@@ -44,11 +68,11 @@ describe('Game component', async assert => {
   }
 
   {
-    const props = {};
+    const props = { user: { foo: 'bar' } };
     const $ = createGame(props);
 
     assert({
-      given: 'just rendering',
+      given: 'a user',
       should: 'render the question form',
       actual: $('.question-form').length,
       expected: 1,
@@ -56,11 +80,11 @@ describe('Game component', async assert => {
   }
 
   {
-    const props = {};
+    const props = { user: { foo: 'bar' } };
     const $ = createGame(props);
 
     assert({
-      given: 'just rendering',
+      given: 'a user',
       should: 'render the history',
       actual: $('.history').length,
       expected: 1,
