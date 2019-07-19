@@ -39,7 +39,7 @@ const createState = ({
       timestamp: new Date('2019-05-22'),
     }),
   ],
-  user = { sub: 'user-abc' },
-} = {}) => ({ loading, questions, user });
+  auth = { user: { sub: 'user-abc' } },
+} = {}) => ({ loading, questions, auth });
 
 export { createQuestion, createState };

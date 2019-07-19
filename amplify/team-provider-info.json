@@ -1,0 +1,22 @@
+{
+    "master": {
+        "awscloudformation": {
+            "AuthRoleName": "rejection-game-master-20190719123754-authRole",
+            "UnauthRoleArn": "arn:aws:iam::655817346595:role/rejection-game-master-20190719123754-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::655817346595:role/rejection-game-master-20190719123754-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "rejection-game-master-20190719123754-deployment",
+            "UnauthRoleName": "rejection-game-master-20190719123754-unauthRole",
+            "StackName": "rejection-game-master-20190719123754",
+            "StackId": "arn:aws:cloudformation:eu-central-1:655817346595:stack/rejection-game-master-20190719123754/44749dd0-aa11-11e9-a673-020300f3c01c"
+        },
+        "categories": {
+            "auth": {
+                "authrejectiongame": {
+                    "facebookAppId": "2577265915671460",
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"2577265915671460\",\"client_secret\":\"bb6f67735626bbc826707c0989ff8740\"}]"
+                }
+            }
+        }
+    }
+}

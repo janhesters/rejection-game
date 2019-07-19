@@ -1,3 +1,10 @@
-import Auth from './auth-component';
+import { Auth } from 'aws-amplify';
+import React from 'react';
 
-export default Auth;
+import AuthComponent from './auth-component';
+
+export default () => (
+  <AuthComponent
+    onClick={() => Auth.federatedSignIn({ provider: 'Facebook' })}
+  />
+);

@@ -6,7 +6,7 @@ import Header from './header-component';
 
 describe('Header component', async assert => {
   const createHeader = (props = {}) =>
-    render(<Header appTitle="bar" {...props} />);
+    render(<Header appTitle="bar" onClick={() => {}} {...props} />);
 
   {
     const props = { appTitle: 'foo' };

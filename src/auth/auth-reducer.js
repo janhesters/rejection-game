@@ -4,7 +4,7 @@ const setUser = payload => ({
 });
 const clearUser = () => ({ type: 'user/CLEAR' });
 
-const getUser = state => state.user;
+const getUser = state => state.auth.user;
 
 const initial = { user: null };
 

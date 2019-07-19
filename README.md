@@ -25,6 +25,8 @@ This app shows:
 - Styling with Material-UI
 - Redux
 - React Hooks
+- Social Login with Facebook to Cognito User Pools (through Amplify)
+- GraphQL AppSync API with DynamoDB (through Amplify)
 
 ## Resources
 
