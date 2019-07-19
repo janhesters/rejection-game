@@ -32,7 +32,7 @@ function Scores({ dayScore, totalScore }) {
           label={strings.dayPoints}
           clickable
           className={classes.chip}
-          color="primary"
+          color="secondary"
         />
       </Grid>
     </Grid>
