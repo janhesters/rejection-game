@@ -4,8 +4,9 @@ import logger from 'redux-logger';
 import { reducer as auth } from './auth/auth-reducer';
 import { reducer as loading } from './loading/loading-reducer';
 import { reducer as questions } from './question/question-reducer';
+import { reducer as snackbar } from './snackbar/snackbar-reducer';
 
-const reducer = combineReducers({ loading, questions, auth });
+const reducer = combineReducers({ auth, loading, questions, snackbar });
 
 const configureStore = () => {
   const middlewares = [];
