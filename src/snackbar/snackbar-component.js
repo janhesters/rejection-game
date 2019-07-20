@@ -61,6 +61,7 @@ function Snackbar({
     <MUISnackbar
       anchorOrigin={anchorOrigin}
       autoHideDuration={autoHideDuration}
+      className="snackbar"
       open={open}
       onClose={onClose}
     >

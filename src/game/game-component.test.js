@@ -90,4 +90,17 @@ describe('Game component', async assert => {
       expected: 1,
     });
   }
+
+  {
+    store.dispatch({ type: 'snackbar/OPEN', payload: 'foo' });
+    const props = { user: { foo: 'bar' } };
+    const $ = createGame(props);
+    assert({
+      given: 'a user',
+      should: 'render the snackbar',
+      actual: $('.snackbar').length,
+      expected: 1,
+    });
+    store.dispatch({ type: 'snackbar/CLOSE' });
+  }
 });

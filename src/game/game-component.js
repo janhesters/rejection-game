@@ -10,6 +10,7 @@ import History from '../history';
 import Loading from '../loading';
 import QuestionForm from '../question-form';
 import Scores from '../scores';
+import Snackbar from '../snackbar';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,6 +37,7 @@ function Game({ loading, user }) {
     if (user) {
       content = (
         <>
+          <Snackbar />
           <Scores />
           <QuestionForm />
           <History />
