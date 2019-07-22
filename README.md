@@ -23,7 +23,7 @@ This app shows:
 
 - Unit tests with RITEway
 - Styling with Material-UI
-- Redux
+- Redux and Redux Saga
 - React Hooks
 - Social Login with Facebook to Cognito User Pools (through Amplify)
 - GraphQL AppSync API with DynamoDB (through Amplify)
