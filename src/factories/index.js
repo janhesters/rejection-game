@@ -9,6 +9,7 @@ const createQuestion = ({
 } = {}) => ({ askee, id, status, timestamp, question });
 
 const createState = ({
+  auth = { user: { sub: 'user-abc' } },
   loading = false,
   questions = [
     createQuestion({
@@ -39,7 +40,7 @@ const createState = ({
       timestamp: new Date('2019-05-22'),
     }),
   ],
-  auth = { user: { sub: 'user-abc' } },
-} = {}) => ({ loading, questions, auth });
+  snackbar = { open: true, message: 'Error: No internet connection.' },
+} = {}) => ({ loading, questions, auth, snackbar });
 
 export { createQuestion, createState };

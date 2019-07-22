@@ -1,7 +1,12 @@
 import { describe } from 'riteway';
 
 import { createQuestion } from '../factories';
-import { addQuestion, getQuestions, reducer } from './question-reducer';
+import {
+  addQuestion,
+  addQuestions,
+  getQuestions,
+  reducer,
+} from './question-reducer';
 
 const question = createQuestion();
 const otherQuestion = createQuestion({
@@ -31,6 +36,22 @@ describe('question reducer', async assert => {
     actual: reducer([question], addQuestion(otherQuestion)),
     expected: [question, otherQuestion],
   });
+
+  {
+    const newestQuestion = createQuestion({
+      question: 'bar',
+      status: 'Rejected',
+    });
+    assert({
+      given: 'state and an add questions action',
+      should: 'add the array of questions to the state',
+      actual: reducer(
+        [question],
+        addQuestions([otherQuestion, newestQuestion])
+      ),
+      expected: [newestQuestion, question, otherQuestion],
+    });
+  }
 
   // NOTE: Ask Eric, if this is how to test selectors.
   assert({

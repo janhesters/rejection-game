@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.2.0",
     "@material-ui/icons": "^4.2.1",
+    "@redux-saga/testing-utils": "^1.0.5",
     "aws-amplify": "^1.1.32",
     "classnames": "^2.2.6",
     "cuid": "^2.1.6",
@@ -20,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "riteway -r @babel/register -r @babel/polyfill 'src/**/*.test.js' | tap-nirvana",
+    "test": "riteway -r @babel/register -r @babel/polyfill 'src/**/*.test.js' | tap-color",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -48,6 +49,6 @@
     "eslint-plugin-simple-import-sort": "^4.0.0",
     "redux-logger": "^3.0.6",
     "riteway": "^6.0.3",
-    "tap-nirvana": "^1.1.0"
+    "tap-color": "^1.1.0"
   }
 }

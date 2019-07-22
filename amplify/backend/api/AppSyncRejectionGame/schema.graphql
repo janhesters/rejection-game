@@ -1,13 +1,13 @@
 enum Status {
-  rejected
-  accepted
-  unanswered
+  Rejected
+  Accepted
+  Unanswered
 }
 
-type Todo @model @auth(rules: [{ allow: owner }]) {
+type Question @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   askee: String!
   status: Status!
-  createdAt: String!
+  createdAt: String
   question: String!
 }

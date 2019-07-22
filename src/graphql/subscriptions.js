@@ -1,8 +1,8 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTodo = `subscription OnCreateTodo {
-  onCreateTodo {
+export const onCreateQuestion = `subscription OnCreateQuestion {
+  onCreateQuestion {
     id
     askee
     status
@@ -11,8 +11,8 @@ export const onCreateTodo = `subscription OnCreateTodo {
   }
 }
 `;
-export const onUpdateTodo = `subscription OnUpdateTodo {
-  onUpdateTodo {
+export const onUpdateQuestion = `subscription OnUpdateQuestion {
+  onUpdateQuestion {
     id
     askee
     status
@@ -21,8 +21,8 @@ export const onUpdateTodo = `subscription OnUpdateTodo {
   }
 }
 `;
-export const onDeleteTodo = `subscription OnDeleteTodo {
-  onDeleteTodo {
+export const onDeleteQuestion = `subscription OnDeleteQuestion {
+  onDeleteQuestion {
     id
     askee
     status

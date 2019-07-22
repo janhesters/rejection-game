@@ -3,11 +3,12 @@ import { useEffect } from 'react';
 
 // NOTE: How to test this?
 // This is imperative. Should we refactor this?
-function useAuth({ setUser, clearUser, stopLoading }) {
+function useAuth({ setUser, clearUser, fetchQuestions, stopLoading }) {
   useEffect(() => {
     Hub.listen('auth', ({ payload: { event, data } }) => {
       if (event === 'signIn') {
         setUser(data);
+        fetchQuestions();
         stopLoading();
       }
       if (event === 'signOut') {
@@ -16,14 +17,15 @@ function useAuth({ setUser, clearUser, stopLoading }) {
       }
     });
 
-    checkUser({ setUser, stopLoading });
-  }, [clearUser, setUser, stopLoading]);
+    checkUser({ fetchQuestions, setUser, stopLoading });
+  }, [clearUser, fetchQuestions, setUser, stopLoading]);
 }
 
-async function checkUser({ setUser, stopLoading }) {
+async function checkUser({ fetchQuestions, setUser, stopLoading }) {
   try {
     const user = await Auth.currentAuthenticatedUser();
     setUser(user);
+    fetchQuestions();
   } catch (error) {
     console.log(error);
   } finally {

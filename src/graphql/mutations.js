@@ -1,8 +1,8 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
-export const createTodo = `mutation CreateTodo($input: CreateTodoInput!) {
-  createTodo(input: $input) {
+export const createQuestion = `mutation CreateQuestion($input: CreateQuestionInput!) {
+  createQuestion(input: $input) {
     id
     askee
     status
@@ -11,8 +11,8 @@ export const createTodo = `mutation CreateTodo($input: CreateTodoInput!) {
   }
 }
 `;
-export const updateTodo = `mutation UpdateTodo($input: UpdateTodoInput!) {
-  updateTodo(input: $input) {
+export const updateQuestion = `mutation UpdateQuestion($input: UpdateQuestionInput!) {
+  updateQuestion(input: $input) {
     id
     askee
     status
@@ -21,8 +21,8 @@ export const updateTodo = `mutation UpdateTodo($input: UpdateTodoInput!) {
   }
 }
 `;
-export const deleteTodo = `mutation DeleteTodo($input: DeleteTodoInput!) {
-  deleteTodo(input: $input) {
+export const deleteQuestion = `mutation DeleteQuestion($input: DeleteQuestionInput!) {
+  deleteQuestion(input: $input) {
     id
     askee
     status
