@@ -3,6 +3,8 @@
 This is my implementation of the rejection app for DevAnywhere.io and
 ericelliottjs.com.
 
+Check out the app at [https://rejectionapp.com](https://rejectionapp.com).
+
 ## Commands
 
 Run the app locally:

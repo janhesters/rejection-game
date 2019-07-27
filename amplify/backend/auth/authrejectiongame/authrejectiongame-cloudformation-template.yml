@@ -132,10 +132,7 @@ Parameters:
                 
   authProviders:
     Type: CommaDelimitedList
-      
-  facebookAppId:
-    Type: String
-                  
+            
   usernameAttributes:
     Type: CommaDelimitedList
         
@@ -150,13 +147,16 @@ Parameters:
       
   hostedUIProviderMeta:
     Type: String
+                                                    
+  facebookAppId:
+    Type: String
             
   hostedUIProviderCreds:
     Type: String
             
   oAuthMetadata:
     Type: String
-                                                  
+          
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
 
